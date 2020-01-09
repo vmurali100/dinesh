@@ -1,0 +1,21 @@
+.some {
+  background: grey;
+}
+
+body {
+  /* TO Stretch the Image */
+  background-size: cover;
+
+  /* TO show the Image  */
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTujhqzR5vCYw27IlIZJIWlUGHcjLIU7XYMzy_7B5vt3w2FCsSI);
+
+  /* TO fix the Image */
+  background-attachment: fixed;
+
+  /* To Adjust the Image Both X and Y Co-ordinates */
+  background-position: 10px 10px;
+}
+
+p {
+  color: white;
+}
