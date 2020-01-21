@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <style>
+      #leftTop,
+      #leftBottom,
+      #rightTop,
+      #rightBottom {
+        width: 60px;
+        height: 60px;
+        background: url("https://www.formget.com/wp-content/uploads/2014/12/Social_circle.png");
+        background-position: -44px -96px;
+      }
+
+      #leftTop:hover {
+        background-position: -44px -26px;
+      }
+      div#leftBottom {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background-position: -166px -26px;
+      }
+      div#leftBottom:hover {
+        background-position: -166px -96px;
+      }
+      div#rightTop {
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-position: -104px -26px;
+      }
+
+      div#rightTop:hover {
+        background-position: -104px -94px;
+      }
+      div#rightBottom {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background-position: -226px -26px;
+      }
+
+      div#rightBottom:hover {
+        background-position: -226px -96px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="leftTop"></div>
+    <div id="leftBottom"></div>
+    <div id="rightTop"></div>
+    <div id="rightBottom"></div>
+  </body>
+</html>
