@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .myHeadingClass {
+        background: grey;
+      }
+      .myHeadingCls {
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="changeHeadingColor()">Click</button>
+    <h3 id="myHeading" class="myHeadingClass">
+      Hello World.. Welcome to Javascript
+    </h3>
+
+    <script>
+      function changeHeadingColor() {
+        //Changing Content
+        document.getElementById("myHeading").innerHTML =
+          "Hello i am going to Change Now";
+
+        //Changing Attribute
+        document
+          .getElementById("myHeading")
+          .setAttribute("class", "myHeadingCls");
+
+        //Changing Styles
+        document.getElementById("myHeading").style.color = "red";
+
+        if (
+          document.getElementById("myHeading").innerHTML.indexOf("Javascript") >
+          -1
+        ) {
+          alert("Yes Javascript is In Heading");
+        } else {
+          alert("No .. It is not there");
+        }
+
+        for (i = 0; i < 5; i++) {
+          var head = document.createElement("h2");
+          head.innerHTML = "Hello I am Heading - " + i;
+          document.body.appendChild(head);
+        }
+      }
+    </script>
+  </body>
+</html>
