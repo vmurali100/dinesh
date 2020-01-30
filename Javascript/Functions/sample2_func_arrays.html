@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="disaplyAllUsers()">Display All Users</button>
+    <button onclick="removeFirst()">Remove First value</button>
+    <button onclick="removeLast()">Remove Last</button>
+    <button onclick="removeMiddle()">Remove Middle Value</button>
+
+    <button onclick="addFirst()">Add First</button>
+    <button onclick="addLast()">Add Last</button>
+    <button onclick="addMiddle()">Add Middle</button>
+    <button onclick="sortUsers()">Sort Users</button>
+    <button onclick="reverseValues()">Reverse Values</button>
+    <div id="demo"></div>
+    <script>
+      var users = ["Murali", "Krishna", "Ravi", "Dinesh", "Ram", "Krishna"];
+
+      function disaplyAllUsers() {
+        var results = "";
+        for (i = 0; i < users.length; i++) {
+          results = results + users[i] + "<br>";
+        }
+
+        document.getElementById("demo").innerHTML = results;
+      }
+
+      function removeFirst() {
+        users.shift();
+        disaplyAllUsers();
+      }
+
+      function removeLast() {
+        users.pop();
+        disaplyAllUsers();
+      }
+
+      function removeMiddle() {
+        users.splice(2, 1);
+        disaplyAllUsers();
+      }
+
+      function addFirst() {
+        users.unshift("Ramu ");
+        disaplyAllUsers();
+      }
+
+      function addLast() {
+        users.push("Ram Kumar");
+        disaplyAllUsers();
+      }
+
+      function addMiddle() {
+        users.splice(2, 0, "Vijay");
+        disaplyAllUsers();
+      }
+
+      function sortUsers() {
+        users.sort();
+        disaplyAllUsers();
+      }
+
+      function reverseValues() {
+        users.reverse();
+        disaplyAllUsers();
+      }
+    </script>
+  </body>
+</html>
