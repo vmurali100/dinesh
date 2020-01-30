@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var users = ["Murali", "Krishna", "Ravi", "Dinesh", "Ram", "Krishna"];
+      //   users[5] = "Kiran";
+      console.log("Total Values : ", users.length);
+
+      //   console.log(users[0]);
+      //   console.log(users[3]);
+      //   console.log(users[4]);
+
+      //   users.push("Sameer"); // Will add a value at the End
+      //   users.unshift("Sameer"); //Will add a value at Begining of the Array
+      //   users.splice(3, 0, "Ram Kumar");
+
+      //   users.pop(); //Will remove a last value
+      //   users.shift(); //Will remove a first Value
+      //   users.splice(3, 1); //Will remove a mentioned value of the array
+
+      //   users.reverse(); //Will reverse all the values
+      //   users.sort(); //Will sort alphabatically
+
+      //find will check first match value
+      //   var check = users.find(function(val) {
+      //     return val == "Krishna";
+      //   });
+
+      //filter will check all matched Values
+      //   var check = users.filter(function(val) {
+      //     return val == "Krishna";
+      //   });
+
+      //   console.log(check);
+      //   for (i = 0; i < users.length; i++) {
+      //     // console.log(users[i]);
+      //     document.write(users[i] + "<br>");
+      //   }
+
+      //   users.map(function(val) {
+      //     document.write(val + "<br>");
+      //   });
+
+      users.forEach(function(val) {
+        document.write(val + "<br>");
+      });
+    </script>
+  </body>
+</html>
