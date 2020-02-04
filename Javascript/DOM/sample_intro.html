@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 id="heading">Hello I am from Javascript</h2>
+    <h2 class="heading">Hello I am from Javascript</h2>
+    <h2 class="heading">Hello I am from Javascript</h2>
+    <h2 class="heading">Hello I am from Javascript</h2>
+    <button onclick="changeColor()">Change Color</button>
+
+    <script>
+      function changeColor() {
+        //By Using Tag Name
+        // var headings = document.getElementsByTagName("h2");
+        // headings[0].style.color = "red";
+        // headings[0].innerHTML = "Hello i am changing now";
+        // headings[0].style.background = "grey";
+        // console.log(headings);
+        //By Using Query Selector All
+        // var headings = document.querySelectorAll("h2");
+        // headings[0].style.color = "red";
+        // headings[0].innerHTML = "Hello i am changing now";
+        // headings[0].style.background = "grey";
+        // console.log(headings);
+        // by Using Name
+        // var headings = document.getElementsByName("heading");
+        // headings[0].style.color = "red";
+        // headings[0].innerHTML = "Hello i am changing now";
+        // headings[0].style.background = "grey";
+        // var headings = document.getElementsByClassName("heading");
+        // headings[0].style.color = "red";
+        // headings[0].innerHTML = "Hello i am changing now";
+        // headings[0].style.background = "grey";
+        // document.getElementById("heading").style.background = "grey";
+        // document.getElementById("heading").innerHTML = "Hello I am chaing now";
+        // document.getElementById("heading").style.color = "red";
+
+        // document.querySelector("#heading").innerHTML =
+        //   "I am going to Change Now";
+        var elememts = document.querySelectorAll(".heading");
+        console.log(elememts);
+        // elememts.forEach(elememt => {
+        //   console.log(elememt);
+        //   elememt.innerHTML = "I am going to Chnange now";
+        //   elememt.style.color = "red";
+        // });
+
+        for (i = 0; i < elememts.length; i++) {
+          elememts[i].innerHTML = "I am going to Chnange now";
+          elememts[i].style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>
