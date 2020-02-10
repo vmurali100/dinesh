@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First Name</label> <br />
+      <input type="text" id="fname" /> <br />
+      <br />
+      br <label for="pizza">Pizza Topping</label> <br />
+      <select name="" id="pizza">
+        <option value="OPT 1">OPT 1</option>
+        <option value="OPT 2">OPT 2</option>
+        <option value="OPT 3">OPT 3</option>
+      </select>
+      <br />
+      <br />
+      <label for="extras">Extras</label> <br />
+      <input type="checkbox" name="extras" value="extra1" /> Extra 1
+      <input type="checkbox" name="extras" value="extra1" />Extra 2
+      <input type="checkbox" name="extras" value="extra1" />Extra 3
+      <input type="checkbox" name="extras" value="extra1" />Extra 4 <br /><br />
+      <label for="delivery">Delivery Instructions</label> <br />
+      <textarea name="" id="delivery" cols="30" rows="10"></textarea> <br />
+      <button onclick="getProduct()" type="button">Get All Valules</button>
+
+      <table border="1">
+        <thead>
+          <th>First name</th>
+          <th>Pizza</th>
+          <th>Extras</th>
+          <th>Delivery</th>
+        </thead>
+        <tbody id="myTable"></tbody>
+      </table>
+    </form>
+
+    <script>
+      var product = {
+        fname: "",
+        pizza: "",
+        extras: [],
+        delivery: ""
+      };
+
+      function getProduct() {
+        product.fname = document.getElementById("fname").value;
+        product.pizza = document.getElementById("pizza").value;
+        product.delivery = document.getElementById("delivery").value;
+
+        var allCheckBoxes = document.getElementsByName("extras");
+        allCheckBoxes.forEach(function(element) {
+          if (element.checked) {
+            product.extras.push(element.value);
+          }
+        });
+
+        console.log(product);
+
+        displaySingleProduct(product);
+      }
+
+      function displaySingleProduct(product) {
+        var myTr = document.createElement("tr");
+        for (a in product) {
+          var myTd = document.createElement("td");
+          myTd.innerHTML = product[a];
+          myTr.appendChild(myTd);
+        }
+
+        document.getElementById("myTable").appendChild(myTr);
+      }
+    </script>
+  </body>
+</html>
