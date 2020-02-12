@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // global Scope
+      var some = "Hello world";
+
+      function sayhello() {
+        //local Scope
+        // var some = "Hello world";
+        console.log(some);
+      }
+
+      sayhello();
+
+      function sayHello2() {
+        console.log(some);
+      }
+
+      sayHello2();
+    </script>
+  </body>
+</html>

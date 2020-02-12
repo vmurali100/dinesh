@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click</button>
+    <br /><br />
+    <button id="remove">Remove</button>
+
+    <script>
+      function sayHello() {
+        alert("I am from Button");
+      }
+      document.querySelector("button").addEventListener("click", sayHello);
+
+      document.getElementById("remove").onclick = function() {
+        document.querySelector("button").removeEventListener("click", sayHello);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Adding A event Handler as Attribue -->
+    <!-- <button onclick="sayHello()">Click</button> -->
+
+    <button id="myBtn" class="myNewBtn" name="myNameBtn">Click</button>
+
+    <script>
+      //   document.querySelector("button").onclick = function() {
+      //     alert("hello World");
+      //   };
+
+      //   document.getElementsByTagName("button")[0].onclick = function() {
+      //     alert("Hello World");
+      //   };
+
+      //   document.getElementById("myBtn").onclick = function() {
+      //     alert("Hello World");
+      //   };
+
+      //   document.getElementsByClassName("myNewBtn")[0].onclick = function() {
+      //     alert("Hello world");
+      //   };
+
+      //   document.getElementsByName("myNameBtn")[0].onclick = function() {
+      //     alert("hello world");
+      //   };
+
+      //   document.getElementById("myBtn").addEventListener("click", function() {
+      //     alert("Hello World");
+      //   });
+
+      function sayHello() {
+        alert("Hello I am ");
+      }
+
+      document.getElementById("myBtn").setAttribute("onclick", "sayHello()");
+    </script>
+  </body>
+</html>
