@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      var message =
+        "Welcome to Javascript . I want to learn Javascript . Javascript will we usefull to build We applications";
+      var pattern = /Javascript/g;
+      var result = message.match(pattern);
+
+      document.getElementById("demo").innerHTML = result;
+    </script>
+  </body>
+</html>
