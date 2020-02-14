@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var time;
+      //   setTimeout(function() {
+      //     alert("Its 5 Am now .. please wake up");
+      //   }, 5000);
+
+      //   setInterval(function() {
+      //     alert("Its 5 Am now .. please wake up");
+      //   }, 5000);
+      time = setInterval(function() {
+        alert("Its 5 AM now ... PLease wake up");
+      }, 5000);
+
+      setTimeout(function() {
+        clearInterval(time);
+      }, 15000);
+    </script>
+  </body>
+</html>
