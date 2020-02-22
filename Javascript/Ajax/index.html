@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX</title>
+  </head>
+  <body>
+    <select name="" id="myProduct" onchange="getProductDetails()">
+      <option value="Managos">Managos</option>
+      <option value="Coconut">Coconut</option>
+      <option value="Imly">Imly</option>
+    </select>
+
+    <div id="product-info">
+      <h3>Selected Product is : <span id="product"></span></h3>
+      <h3>Selected Product Qty Available is : <span id="qty"></span></h3>
+    </div>
+    <script>
+      var allProducts = [
+        { productName: "Managos", totalAvailable: 100 },
+        { productName: "Coconut", totalAvailable: 150 },
+        { productName: "Imly", totalAvailable: 60 }
+      ];
+      //   Asyncrous Javascripr and XML
+
+      function getProductDetails() {
+        var selectedProductValue = document.getElementById("myProduct").value;
+        var selectedProduct = allProducts.find(function(obj) {
+          return obj.productName == selectedProductValue;
+        });
+        console.log(selectedProduct);
+        document.getElementById("product").innerHTML =
+          selectedProduct.productName;
+        document.getElementById("qty").innerHTML =
+          selectedProduct.totalAvailable + " Tons";
+      }
+    </script>
+  </body>
+</html>
