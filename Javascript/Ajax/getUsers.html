@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getData()">Get Data</button>
+    <ul></ul>
+    <script>
+      function getData() {
+        var getInfo = new XMLHttpRequest();
+
+        getInfo.onreadystatechange = function() {
+          if (getInfo.readyState == 4 && getInfo.status == 200) {
+            console.log(getInfo.response);
+            users = JSON.parse(getInfo.response);
+            displayUsers();
+          }
+        };
+
+        getInfo.open("GET", "http://localhost:3000/users");
+        getInfo.send();
+      }
+
+      function displayUsers() {
+        users.map(function(user) {
+          var myLi = document.createElement("li");
+          myLi.innerHTML = user.fname + " " + user.lname;
+          document.querySelector("ul").appendChild(myLi);
+        });
+      }
+    </script>
+  </body>
+</html>

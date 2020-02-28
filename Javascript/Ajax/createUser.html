@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First Name : </label>
+      <input type="text" name="" id="fname" /> <br />
+      <label for="fname">Last Name : </label>
+      <input type="text" name="" id="lname" /> <br />
+
+      <button onclick="addUser()" type="button">Get User</button>
+    </form>
+
+    <script>
+      function addUser() {
+        user = {
+          fname: "",
+          lname: ""
+        };
+        user.fname = document.getElementById("fname").value;
+        user.lname = document.getElementById("lname").value;
+        postDataToServer();
+      }
+
+      function postDataToServer() {
+        var postData = new XMLHttpRequest();
+
+        postData.onreadystatechange = function() {
+          if (postData.status == 201 && postData.readyState == 4) {
+            console.log("User Added Successfully");
+          }
+        };
+        postData.open("POST", "http://localhost:3000/users");
+        postData.setRequestHeader("Content-Type", "application/json");
+        postData.send(JSON.stringify(user));
+      }
+    </script>
+  </body>
+</html>
