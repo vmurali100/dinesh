@@ -31,6 +31,39 @@
           document.querySelector("ul").appendChild(myLi);
         });
       }
+
+      function deleteUser(i) {
+        var deleteInfo = new XMLHttpRequest();
+        deleteInfo.onreadystatechange = function() {
+          if (deleteInfo.readyState == 4 && deleteInfo.status == 200) {
+            console.log("User deleted Successfully");
+          }
+        };
+        deleteInfo.open("DELETE", "http://localhost:3000/users/" + 1);
+        deleteInfo.send();
+      }
+
+      function updateUser() {
+        var user = {
+          fname: "",
+          lname: " ",
+          id: 1
+        };
+        for (a in user) {
+          user[a] = document.getElementById(a).value;
+        }
+
+        var updateInfo = new XMLHttpRequest();
+        updateInfo.onreadystatechange = function() {
+          if (updateInfo.readyState == 4 && updateInfo.status == 200) {
+            console.log("User Updated Successfully");
+          }
+        };
+
+        updateInfo.open("PUT", "http://localhost:3000/users/" + user.id);
+        updateInfo.setRequestHeader("Content-Type", "application/json");
+        updateInfo.send(JSON.stringify(user));
+      }
     </script>
   </body>
 </html>

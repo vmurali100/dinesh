@@ -1,19 +1,9 @@
 {
   "users": [
     {
-      "fname": "Dinesh",
-      "lname": "Kumar",
-      "id": 2
-    },
-    {
-      "fname": "Ram",
-      "lname": "Krishna",
-      "id": 3
-    },
-    {
-      "fname": "Hema",
-      "lname": "Sekar",
-      "id": 4
+      "fname": "Murali",
+      "lname": "Planty",
+      "id": 1
     }
   ]
 }

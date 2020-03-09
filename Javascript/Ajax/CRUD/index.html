@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="fname">First Name : </label>
+      <input type="text" name="" id="fname" /> <br />
+      <label for="fname">Last Name : </label>
+      <input type="text" name="" id="lname" /> <br />
+      <input type="text" name="" id="id" hidden /> <br />
+
+      <button onclick="addUser()" type="button" id="getUser">Get User</button>
+      <button onclick="updateUser()" style="display: none;" id="update">
+        Update
+      </button>
+    </form>
+
+    <ul></ul>
+
+    <script>
+      function addUser() {
+        user = {
+          fname: "",
+          lname: ""
+        };
+        user.fname = document.getElementById("fname").value;
+        user.lname = document.getElementById("lname").value;
+        postDataToServer();
+      }
+
+      function postDataToServer() {
+        var postData = new XMLHttpRequest();
+
+        postData.onreadystatechange = function() {
+          if (postData.status == 201 && postData.readyState == 4) {
+            console.log("User Added Successfully");
+          }
+        };
+        postData.open("POST", "http://localhost:3000/users");
+        postData.setRequestHeader("Content-Type", "application/json");
+        postData.send(JSON.stringify(user));
+      }
+
+      function getData() {
+        var getInfo = new XMLHttpRequest();
+
+        getInfo.onreadystatechange = function() {
+          if (getInfo.readyState == 4 && getInfo.status == 200) {
+            console.log(getInfo.response);
+            users = JSON.parse(getInfo.response);
+            displayUsers();
+          }
+        };
+
+        getInfo.open("GET", "http://localhost:3000/users");
+        getInfo.send();
+      }
+
+      getData();
+
+      function displayUsers() {
+        users.map(function(user, index) {
+          var myLi = document.createElement("li");
+          myLi.innerHTML =
+            user.fname +
+            " " +
+            user.lname +
+            " <button onclick='deleteUser(" +
+            index +
+            ")'>Delete</button><button onclick='editUser(" +
+            index +
+            ")'>Edit</button>";
+          document.querySelector("ul").appendChild(myLi);
+        });
+      }
+
+      function deleteUser(i) {
+        console.log(users[i]);
+        var deleteInfo = new XMLHttpRequest();
+        deleteInfo.onreadystatechange = function() {
+          if (deleteInfo.readyState == 4 && deleteInfo.status == 200) {
+            console.log("User deleted Successfully");
+          }
+        };
+        deleteInfo.open("DELETE", "http://localhost:3000/users/" + users[i].id);
+        deleteInfo.send();
+      }
+
+      function editUser(i) {
+        console.log(users[i]);
+        for (a in users[i]) {
+          document.getElementById(a).value = users[i][a];
+        }
+        document.getElementById("update").style.display = "block";
+        document.getElementById("getUser").style.display = "none";
+      }
+
+      function updateUser() {
+        var user = {
+          fname: "",
+          lname: " ",
+          id: 1
+        };
+        for (a in user) {
+          if (a !== "id") {
+            user[a] = document.getElementById(a).value;
+          } else {
+            user[a] = Number(document.getElementById(a).value);
+          }
+        }
+
+        var updateInfo = new XMLHttpRequest();
+        updateInfo.onreadystatechange = function() {
+          if (updateInfo.readyState == 4 && updateInfo.status == 200) {
+            console.log("User Updated Successfully");
+          }
+        };
+
+        updateInfo.open("PUT", "http://localhost:3000/users/" + user.id);
+        updateInfo.setRequestHeader("Content-Type", "application/json");
+        updateInfo.send(JSON.stringify(user));
+      }
+    </script>
+  </body>
+</html>
