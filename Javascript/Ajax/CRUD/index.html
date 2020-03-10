@@ -14,7 +14,12 @@
       <input type="text" name="" id="id" hidden /> <br />
 
       <button onclick="addUser()" type="button" id="getUser">Get User</button>
-      <button onclick="updateUser()" style="display: none;" id="update">
+      <button
+        onclick="updateUser()"
+        style="display: none;"
+        id="update"
+        type="button"
+      >
         Update
       </button>
     </form>
@@ -63,6 +68,7 @@
       getData();
 
       function displayUsers() {
+        document.querySelector("ul").innerHTML = "";
         users.map(function(user, index) {
           var myLi = document.createElement("li");
           myLi.innerHTML =
@@ -112,17 +118,26 @@
             user[a] = Number(document.getElementById(a).value);
           }
         }
+        console.log(user);
 
         var updateInfo = new XMLHttpRequest();
         updateInfo.onreadystatechange = function() {
           if (updateInfo.readyState == 4 && updateInfo.status == 200) {
             console.log("User Updated Successfully");
+            getData();
+            clearForm(user);
           }
         };
 
         updateInfo.open("PUT", "http://localhost:3000/users/" + user.id);
         updateInfo.setRequestHeader("Content-Type", "application/json");
         updateInfo.send(JSON.stringify(user));
+      }
+
+      function clearForm(obj) {
+        for (a in obj) {
+          document.getElementById(a).value = "";
+        }
       }
     </script>
   </body>
