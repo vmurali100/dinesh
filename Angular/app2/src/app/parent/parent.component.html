@@ -1,0 +1,5 @@
+<p>parent works!</p>
+<p>Message Received From Child : {{ msg }}</p>
+<hr />
+<!-- Step 4 -->
+<app-child (sendData)="getInfo($event)"></app-child>
