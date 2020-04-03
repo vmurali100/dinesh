@@ -13,6 +13,9 @@ export class CompaComponent implements OnInit {
     lname: "Krishna"
   };
   users = ["Ram", "Ravi", "Kiran"];
+
+  //How to Add a service to Component
+  //
   constructor(private sibService: SiblingsService) {}
 
   ngOnInit(): void {}
