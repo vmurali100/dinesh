@@ -1,0 +1,7 @@
+<form #dineshForm="ngForm">
+  <label for="fname">First Name : </label>
+  <input type="text" ngModel name="fname" /><br />
+  <label for="lname">Last Name : </label>
+  <input type="text" ngModel name="lname" />
+  <button (click)="getValues(dineshForm)">Get Values</button>
+</form>

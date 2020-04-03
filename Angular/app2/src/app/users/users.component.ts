@@ -16,4 +16,5 @@ export class UsersComponent implements OnInit {
     console.log(i);
     this.users.splice(i, 1);
   }
+  editUser() {}
 }
