@@ -1,0 +1,37 @@
+<p>userform works!</p>
+
+<form #userForm="ngForm">
+  <label for="fname">First Name : </label>
+  <input type="text" ngModel name="fname" /> <br />
+  <label for="lname">Last Name :</label>
+  <input type="text" ngModel name="lname" /> <br />
+  <button type="button" (click)="addUser(userForm)" *ngIf="!isEdit">
+    Add User
+  </button>
+  <button type="button" *ngIf="isEdit" (click)="updateUser(userForm)">
+    Update
+  </button>
+</form>
+<hr />
+<table class="table">
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.fname }}</td>
+      <td>{{ user.lname }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editUser(user, i, userForm)">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delteUser(i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

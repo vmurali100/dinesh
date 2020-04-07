@@ -10,6 +10,7 @@ import { CompaComponent } from "./Siblings/compa/compa.component";
 import { CompbComponent } from "./Siblings/compb/compb.component";
 import { UsersComponent } from "./users/users.component";
 import { MyformComponent } from "./myform/myform.component";
+import { UserformComponent } from "./userform/userform.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MyformComponent } from "./myform/myform.component";
     CompbComponent,
     UsersComponent,
     MyformComponent,
+    UserformComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
