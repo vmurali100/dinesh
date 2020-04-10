@@ -1,0 +1,39 @@
+<p>user-module-driven works!</p>
+
+<!-- <form #userForm="ngForm"></form> -->
+<form [formGroup]="userForm">
+  <label for="fname">First Name :</label>
+  <input type="text" formControlName="fname" /> <br />
+  <label for="lname">Last Name :</label>
+  <input type="text" formControlName="lname" /> <br />
+  <button (click)="addUser()" class="btn btn-primary" *ngIf="!isEdit">
+    Add User
+  </button>
+  <button (click)="updateUser()" class="btn btn-primary" *ngIf="isEdit">
+    Update
+  </button>
+</form>
+
+<hr />
+<table class="table">
+  <thead>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.fname }}</td>
+      <td>{{ user.lname }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editUser(user, i, userForm)">
+          Edit
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="delteUser(i)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
