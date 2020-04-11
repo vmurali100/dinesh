@@ -1,0 +1,59 @@
+<form [formGroup]="userForm">
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <input type="text" class="form-control" formControlName="fname" />
+  </div>
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <input type="text" class="form-control" formControlName="lname" />
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" formControlName="email" />
+  </div>
+  <div class="form-group" hidden>
+    <label for="email">ID</label>
+    <input type="email" class="form-control" formControlName="id" />
+  </div>
+
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="addUser(userForm)"
+    *ngIf="!isEdit"
+  >
+    Submit
+  </button>
+  <button *ngIf="isEdit" class="btn btn-primary" (click)="updateUser()">
+    Update
+  </button>
+</form>
+
+<hr />
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First</th>
+      <th>Last</th>
+      <th>Email</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of allUsers">
+      <td>{{ user.fname }}</td>
+      <td>{{ user.lname }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button class="btn btn-warning" (click)="editUser(user)">Edit</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteUser(user)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
