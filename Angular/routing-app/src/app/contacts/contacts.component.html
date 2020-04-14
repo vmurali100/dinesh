@@ -1,0 +1,24 @@
+<div class="container">
+  <label for="search">Search User :</label>
+  <input type="text" name="search" [(ngModel)]="searchText" />
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts | searchuser: searchText">
+        <td>{{ contact.id }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.username | lowercase }}</td>
+        <td>{{ contact.password | uppercase }}</td>
+        <td>{{ todaysDate | date: "MM/dd/yy" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

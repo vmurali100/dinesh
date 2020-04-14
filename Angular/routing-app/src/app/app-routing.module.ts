@@ -1,3 +1,4 @@
+import { ContactsComponent } from "./contacts/contacts.component";
 import { AboutComponent } from "./about/about.component";
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
@@ -10,6 +11,7 @@ const appRoutes: Routes = [
   { path: "pricing", component: PricingComponent },
   { path: "features", component: FeaturesComponent },
   { path: "about", component: AboutComponent },
+  { path: "contacts", component: ContactsComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
